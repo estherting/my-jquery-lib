@@ -8,31 +8,31 @@
     <script>
       $(document).ready(function() {
         $('.hide-box').click(function() {
-          $('.hide-box').hide();
+          $(this).hide();
         })
         $('.show-button').click(function() {
           $('.hide-box, .toggle-box, .slide-up-box, .slide-down-box, .slide-toggle-box').show();
         })
         $('.toggle-box').click(function() {
-          $('.toggle-box').toggle();
+          $(this).toggle();
         })
         $('.slide-up-box').click(function() {
-          $('.slide-up-box').slideUp("slow");
+          $(this).slideUp("slow");
         })
         $('.slide-down-button').click(function() {
           $('.slide-up-box').slideDown("slow");
         })
         $('.slide-toggle-box').click(function() {
-          $('.slide-toggle-box').slideToggle();
+          $(this).slideToggle();
         })
         $('.fade-box').click(function() {
-          $('.fade-box').fadeOut("slow");
+          $(this).fadeOut("slow");
         })
         $('.fade-in-button').click(function() {
           $('.fade-box').fadeIn("slow");
         })
         $('.add-class-box').click(function() {
-          $('.add-class-box').addClass("border");
+          $(this).addClass("border");
         })
         $('.remove-class-button').click(function() {
           $('.add-class-box').removeClass("border");
@@ -66,11 +66,22 @@
         })
         $('#answer1').hover(function() {
           $('table').data("test", {answer1: "Ting", answer2: "Purple"});
-          $('#answer1').text($('table').data("test").answer1);
+          $(this).text($('table').data("test").answer1);
         })
         $('#answer2').hover(function() {
           $('table').data("test", {answer1: "Ting", answer2: "Purple"});
-          $('#answer2').text($('table').data("test").answer2);
+          $(this).text($('table').data("test").answer2);
+        })
+        $('.swap-attr-image').hover(function(){
+          var temp = $(this).attr('src');
+          var altVal = $(this).attr('data-alt-src');
+          $(this).attr('src', altVal);
+          $(this).attr('data-alt-src', temp)
+        }, function() {
+          var temp = $(this).attr('src');
+          var altVal = $(this).attr('data-alt-src');
+          $(this).attr('src', altVal);
+          $(this).attr('data-alt-src', temp)
         })
       })
     </script>
@@ -149,11 +160,19 @@
 
     <div class="section-block">
       <div class="instruction">
-        <h1>Attribute</h1>
+        <h1>(add) Attribute</h1>
         <p>Oops...the image is missing! Click the button to add the source attribute.</p>
         <button class="attr-button">Show image</button>
       </div>
       <img class="attr-image" alt="the myseterious missing image">
+    </div>
+
+    <div class="section-block">
+      <div class="instruction">
+        <h1>(change, get) Attribute</h1>
+        <p>Hover over the skirt to see the back!</p>
+      </div>
+      <img class="swap-attr-image" src="img/skirt-front.png" data-alt-src="img/skirt-back.png" alt="image of a skirt">
     </div>
 
     <div class="section-block">
